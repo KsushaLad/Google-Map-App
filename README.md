@@ -12,7 +12,7 @@
 * Coroutines;
 * View Binding;
 * Animation;
-* View Model/
+* View Model.
 ## Link on Google Play: https://tinyurl.com/znoukr
 ## This application was made in IDE Android Studio. For project build use Gradle and Android Studio:
 * Click the button "Code" and download the ZIP-file;
