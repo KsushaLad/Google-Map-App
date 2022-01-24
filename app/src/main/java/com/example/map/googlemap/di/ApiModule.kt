@@ -4,7 +4,6 @@ import com.example.map.googlemap.network.api.DirectionAPI
 import com.example.map.googlemap.network.api.GeocodeAPI
 import com.example.map.googlemap.utils.DI_API_NO_AUTH
 import com.example.map.googlemap.utils.DI_RETROFIT_NO_AUTH
-
 import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import retrofit2.Retrofit

@@ -2,7 +2,6 @@ package com.example.map.googlemap.di
 
 import com.example.map.googlemap.BuildConfig
 import com.example.map.googlemap.utils.*
-import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import org.koin.core.module.Module
