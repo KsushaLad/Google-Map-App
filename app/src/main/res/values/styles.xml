@@ -1,0 +1,65 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="BottomButton" parent="@style/H2BoldWhite">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/shape_badge_bg</item>
+        <item name="android:enabled">false</item>
+    </style>
+
+    <style name="FloatingBottomButton" parent="@style/H2BoldWhite">
+        <item name="elevation">5dp</item>
+        <item name="android:layout_marginEnd">25dp</item>
+        <item name="android:layout_marginStart">25dp</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/shape_badge_bg</item>
+        <item name="android:enabled">false</item>
+    </style>
+
+    <style name="FloatingBottomButton2" parent="@style/H2BoldWhite">
+        <item name="elevation">5dp</item>
+        <item name="android:layout_marginEnd">35dp</item>
+        <item name="android:layout_marginStart">35dp</item>
+        <item name="android:padding">10dp</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">50dp</item>
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/shape_badge_bg</item>
+        <item name="android:enabled">false</item>
+    </style>
+
+    <style name="SmallButton" parent="@style/H2BoldWhite">
+        <item name="android:layout_gravity">bottom</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/shape_badge_blue_bg</item>
+    </style>
+
+    <style name="NoActionBar" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="FullScreenDialogStyle" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowNoTitle">true</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="android:windowFullscreen">false</item>
+        <item name="android:windowIsFloating">false</item>
+        <item name="android:windowBackground">?android:colorBackground</item>
+        <item name="colorControlHighlight">@color/hover_color</item>
+    </style>
+
+</resources>

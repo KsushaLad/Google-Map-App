@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="com.example.map.googlemap.data.source.enums.SearchType" />
+        <import type="android.view.View" />
+        <variable
+            name="mapVM"
+            type="com.example.map.googlemap.vm.MapViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.MainActivity">
+
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/fcv_map"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="@dimen/width_main_activity"
+            android:layout_height="@dimen/width_main_activity"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_departure"
+            style="@style/H4RegularBlack"
+            onShortBlockClick="@{() -> mapVM.onSearchClick(SearchType.SOURCE)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_main_activity"
+            android:layout_marginStart="@dimen/margin_horizontal_main_activity"
+            android:layout_marginEnd="@dimen/margin_horizontal_main_activity"
+            android:layout_marginBottom="@dimen/padding_main_activity"
+            android:layout_margin="@dimen/margin_start_search_place_dialog"
+            android:background="@drawable/background_minutes"
+            android:ellipsize="end"
+            android:foreground="?attr/selectableItemBackground"
+            android:hint="@string/search_departure"
+            android:padding="@dimen/margin_start_search_place_dialog"
+            android:singleLine="true"
+            android:text="@{mapVM.liveStartLocationVO.addressName.length() == 0 ? mapVM.liveStartLocationVO.name : mapVM.liveStartLocationVO.addressName}"
+            app:layout_constraintBottom_toTopOf="@+id/tv_destination"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fcv_map"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_destination"
+            style="@style/H4RegularBlack"
+            onShortBlockClick="@{() -> mapVM.onSearchClick(SearchType.DESTINATION)}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/margin_horizontal_main_activity"
+            android:layout_marginVertical="@dimen/margin_horizontal_main_activity"
+            android:layout_marginStart="@dimen/margin_horizontal_main_activity"
+            android:layout_marginEnd="@dimen/margin_horizontal_main_activity"
+            android:layout_marginBottom="@dimen/margin_bottom"
+            android:layout_margin="@dimen/margin_start_search_place_dialog"
+            android:background="@drawable/background_minutes"
+            android:ellipsize="end"
+            android:foreground="?attr/selectableItemBackground"
+            android:hint="@string/search_destination"
+            android:padding="@dimen/margin_start_search_place_dialog"
+            android:singleLine="true"
+            android:text="@{mapVM.liveDestinationLocationVO.addressName.length() == 0 ? mapVM.liveDestinationLocationVO.name : mapVM.liveDestinationLocationVO.addressName}"
+            app:layout_constraintBottom_toTopOf="@+id/tv_start_driving"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/fcv_map"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_start_driving"
+            style="@style/FloatingBottomButton"
+            onShortBlockClick="@{() -> mapVM.startDriving()}"
+            android:layout_marginBottom="?android:actionBarSize"
+            android:enabled="@{mapVM.liveIsEnabledDriving}"
+            android:foreground="?attr/selectableItemBackground"
+            android:text="@string/btn_start_driving_guide"
+            android:visibility="@{mapVM.liveIsEnabledDriving &amp;&amp; !mapVM.liveIsDrivingStarted ? View.VISIBLE : View.INVISIBLE, default=invisible}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:visibility="invisible"
+            tools:ignore="UnusedAttribute" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

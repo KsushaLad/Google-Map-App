@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.recyclerview.widget.LinearLayoutManager" />
+
+        <variable
+            name="searchPlaceVM"
+            type="com.example.map.googlemap.vm.SearchLocationViewModel" />
+
+        <variable
+            name="searchPlaceAdapter"
+            type="com.example.map.googlemap.adapter.SearchPlaceAdapter" />
+
+        <variable
+            name="recentSearchAdapter"
+            type="com.example.map.googlemap.base.ui.SimpleRecyclerView.Adapter" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/gray_200">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="@dimen/margin_start_custom_toast"
+            android:visibility="invisible"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_delete"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_toolbar_title"
+            style="@style/H2BoldBlack"
+            android:layout_width="@dimen/width_main_activity"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:lines="1"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_exit"
+            app:layout_constraintStart_toEndOf="@id/iv_back"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.01999998"
+            tools:text="@string/title" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="@dimen/margin_start_custom_toast"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_delete"
+            tools:ignore="UnusedAttribute" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_search"
+            enabled="@{searchPlaceVM.liveKeyword.length() > 0 ? true : false}"
+            onShortBlockClick="@{() -> searchPlaceVM.onSearchClick()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_end"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="@dimen/padding_search_place"
+            android:tint="@{searchPlaceVM.liveKeyword.length() > 0 ? @color/gray_800 : @color/gray_200}"
+            android:visibility="visible"
+            app:layout_constraintBottom_toTopOf="@+id/materialTextView2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_exit"
+            app:layout_constraintVertical_bias="0.0"
+            app:srcCompat="@drawable/ic_search"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/et_keyword"
+            style="@style/H3RegularBlack"
+            android:layout_width="@dimen/width_main_activity"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_start_search_place_dialog"
+            android:background="@drawable/bg_search_normal"
+            android:gravity="center_vertical"
+            android:hint="@string/search_address"
+            android:imeOptions="actionSearch"
+            android:inputType="text"
+            android:lines="1"
+            android:padding="@dimen/radius_shape_bage"
+            android:paddingStart="@dimen/padding_search_place"
+            android:paddingEnd="@dimen/padding_search_place"
+            android:text="@={searchPlaceVM.liveKeyword}"
+            android:textColorHint="@color/gray_500"
+            android:textCursorDrawable="@drawable/cursor_color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@id/iv_search"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_toolbar_title"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView"
+            style="@style/H3RegularBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:layout_marginTop="@dimen/margin_top"
+            android:layout_marginBottom="@dimen/margin_top"
+            android:background="@drawable/buttons"
+            android:padding="@dimen/margin_top"
+            android:text="@string/tv_recent_search_list"
+            app:layout_constraintStart_toStartOf="@+id/et_keyword"
+            app:layout_constraintTop_toBottomOf="@+id/et_keyword"
+            tools:ignore="MissingConstraints"
+            tools:visibility="visible" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView2"
+            style="@style/H3RegularBlack"
+            onShortBlockClick="@{() -> searchPlaceVM.clearLocalLocations()}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top"
+            android:layout_marginBottom="@dimen/margin_top"
+            android:background="@drawable/buttons"
+            android:gravity="end"
+            android:padding="@dimen/margin_top"
+            android:text="@string/tv_delete_all_search_list"
+            app:layout_constraintEnd_toStartOf="@+id/iv_search"
+            app:layout_constraintTop_toBottomOf="@+id/et_keyword"
+            tools:ignore="MissingConstraints"
+            tools:visibility="visible" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_content_search"
+            adapter="@{searchPlaceAdapter}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/gray_200"
+            android:visibility="@{searchPlaceVM.liveIsResultZero || searchPlaceVM.liveKeyword.length() == 0 ? View.GONE : View.VISIBLE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/materialTextView"
+            tools:ignore="NotSibling"
+            tools:itemCount="20"
+            tools:listitem="@layout/search_place_item"
+            tools:visibility="gone" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_content_recent"
+            adapter="@{recentSearchAdapter}"
+            replaceAll="@{searchPlaceVM.liveLocalLocations}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_top"
+            android:background="@color/gray_200"
+            android:visibility="@{searchPlaceVM.liveKeyword.length() == 0 ? View.VISIBLE : View.GONE}"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/materialTextView"
+            tools:ignore="NotSibling"
+            tools:itemCount="20"
+            tools:listitem="@layout/recent_search_place_item" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/no_results"
+            style="@style/H2BoldBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/radius_cursor"
+            android:padding="@dimen/margin_start_search_place_dialog"
+            android:text="@string/tv_no_results"
+            android:visibility="@{searchPlaceVM.liveIsResultZero &amp;&amp; searchPlaceVM.liveKeyword.length() != 0 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteY="255dp" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:layout_width="@dimen/width_search_place"
+            android:layout_height="@dimen/width_search_place"
+            android:layout_margin="@dimen/radius_cursor"
+            android:layout_marginTop="@dimen/top_margin"
+            android:layout_marginBottom="@dimen/bottom_margin"
+            android:padding="@dimen/margin_start_search_place_dialog"
+            android:visibility="@{searchPlaceVM.liveIsResultZero &amp;&amp; searchPlaceVM.liveKeyword.length() != 0 ? View.VISIBLE : View.GONE}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/no_results"
+            app:srcCompat="@drawable/ic_sketch_symbol" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="toolbar_height">56dp</dimen>
+    <dimen name="width_stroke">1dp</dimen>
+    <dimen name="radius_background">7dp</dimen>
+    <dimen name="width_cursor">2dp</dimen>
+    <dimen name="radius_cursor">10dp</dimen>
+    <dimen name="width_search">20dp</dimen>
+    <dimen name="radius_shape_bage">13dp</dimen>
+    <dimen name="margin_start_custom_toast">16dp</dimen>
+    <dimen name="loading_dialog_wigth">150dp</dimen>
+    <dimen name="width_main_activity">0dp</dimen>
+    <dimen name="margin_horizontal">24dp</dimen>
+    <dimen name="margin_start_main_activity">32dp</dimen>
+    <dimen name="margin_top_main_activity">60dp</dimen>
+    <dimen name="padding_main_activity">10dp</dimen>
+    <dimen name="text_size_main_activity">16sp</dimen>
+    <dimen name="width_main">9dp</dimen>
+    <dimen name="margin_horizontal_main_activity">8dp</dimen>
+    <dimen name="margin_top_search_place">4dp</dimen>
+    <dimen name="padding_main">2dp</dimen>
+    <dimen name="height">50dp</dimen>
+    <dimen name="padding_search_place">12dp</dimen>
+    <dimen name="margin_top">5dp</dimen>
+    <dimen name="margin_start_search_place_dialog">15dp</dimen>
+    <dimen name="margin_bottom_search_place_dialog">13dp</dimen>
+    <dimen name="width_search_place">100dp</dimen>
+    <dimen name="top_margin">41dp</dimen>
+    <dimen name="bottom_margin">77dp</dimen>
+    <dimen name="margin_bottom">30dp</dimen>
+    <dimen name="margin_end">4dp</dimen>
+
+</resources>

@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="mapVM"
+            type="com.example.map.googlemap.vm.MapViewModel" />
+        <variable
+            name="result"
+            type="com.example.map.googlemap.network.response.ReverseGeocodeResponse.Result" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="@dimen/margin_start_custom_toast"
+        android:padding="@dimen/margin_horizontal_main_activity">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_location_name"
+            style="@style/H2BoldBlack"
+            android:layout_width="@dimen/width_main_activity"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@{result.formattedAddress}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/location" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_desc"
+            style="@style/H3RegularBlack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/width_search"
+            android:text="@{String.format(@string/tv_address_description, mapVM.liveSelectPlaceType)}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_location_name"
+            tools:text="@string/desc"
+            android:visibility="gone"/>
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_destination"
+            style="@style/SmallButton"
+            onShortBlockClick="@{() -> mapVM.setDeparture(result.geometry.location, result.formattedAddress)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/width_search"
+            android:layout_marginEnd="@dimen/margin_start_custom_toast"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="@dimen/margin_horizontal_main_activity"
+            android:text="@string/setting_departure"
+            app:layout_constraintEnd_toStartOf="@+id/tv_departure"
+            app:layout_constraintTop_toBottomOf="@id/tv_desc"
+            tools:ignore="UnusedAttribute" />
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/tv_departure"
+            style="@style/SmallButton"
+            onShortBlockClick="@{() -> mapVM.setDestination(result.geometry.location, result.formattedAddress)}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:foreground="?attr/selectableItemBackground"
+            android:padding="@dimen/margin_horizontal_main_activity"
+            android:text="@string/setting_destination"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tv_destination"
+            tools:ignore="UnusedAttribute" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

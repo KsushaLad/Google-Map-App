@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">Google-Map</string>
+    <string name="toast_complete_departure">Настройка "начало пути" завершена</string>
+    <string name="toast_complete_destination">Настройка "конец пути" завершена</string>
+    <string name="toast_no_driving_route">Нельзя проложить маршрут</string>
+    <string name="departure">Начало</string>
+    <string name="destination">Конец</string>
+    <string name="marker_snippet_departure">Начало пути</string>
+    <string name="marker_snippet_destination">Конец пути</string>
+    <string name="toast_no_route_same_departure_destination">Нет маршрута для вождения, потому что он такой же, как "откуда" и "куда"</string>
+    <string name="toast_finish_driving">Движение закончено</string>
+    <string name="cancel">Отмена</string>
+    <string name="setting">Настройки</string>
+    <string name="request_gps_permission">Разрешить GPS</string>
+    <string name="desc_gps_permission">Пожалуйста, разрешите доступ к GPS</string>
+    <string name="error_no_location">Значение latLng равно null</string>
+    <string name="error_failed_parsing_google_map_dark_mode_style">Не удалось прочитать Google Map Style, он работает в стандартном режиме</string>
+    <string name="setting_departure">Начало пути</string>
+    <string name="setting_destination">Конец пути</string>
+    <string name="error_no_adapter_item">Элемент имеет значение null</string>
+    <string name="tv_estimated_driving_time">Примерное время в пути</string>
+    <string name="search_departure">Начало пути</string>
+    <string name="search_destination">Конец пути</string>
+    <string name="btn_start_driving_guide">Проложить путь</string>
+    <string name="btn_cancel_driving_guide">Отмена</string>
+    <string name="search_address">Пожалуйста, введите адрес</string>
+    <string name="tv_recent_search_list">Список последних поисков</string>
+    <string name="tv_delete_all_search_list">Удалить все</string>
+    <string name="tv_no_results">Нет результатов</string>
+    <string name="tv_address_description">Типы мест :  %s</string>
+    <string name="password">Установлен новый пароль</string>
+    <string name="minutes">10минута</string>
+    <string name="search">Seoul paris london</string>
+    <string name="location">Location name</string>
+    <string name="title">toolbar title</string>
+    <string name="desc">description</string>
+</resources>

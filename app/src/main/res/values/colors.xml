@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="colorPrimary">@color/white</color>
+    <color name="colorPrimaryDark">@color/gray_300</color>
+    <color name="colorAccent">@color/primary_500</color>
+    <color name="black_87">#DE000000</color>
+    <color name="hover_color">#B4C0F2</color>
+    <color name="primary_500">#4363e6</color>
+    <color name="primary_400">#6d89fc</color>
+    <color name="primary_200">#d1daff</color>
+    <color name="black">#020202</color>
+    <color name="gray_300">#e1e2e6</color>
+    <color name="gray_200">#f0f1f5</color>
+    <color name="white">#ffffff</color>
+    <color name="gray_500">#adaeb3</color>
+    <color name="gray_800">#46474d</color>
+    <color name="gray_900">#232630</color>
+    <color name="error">#7359FF</color>
+    <color name="violet_shape_badge">#7359FF</color>
+    <color name="stroke_shape_badge">#4200AA</color>
+
+</resources>

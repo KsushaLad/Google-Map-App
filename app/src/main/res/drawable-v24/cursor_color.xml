@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid
+        android:color="@color/stroke_shape_badge"/>
+    <size
+        android:width="@dimen/width_cursor" />
+    <corners
+        android:radius="@dimen/radius_cursor" />
+</shape>
