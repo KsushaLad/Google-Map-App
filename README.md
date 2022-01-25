@@ -1,6 +1,6 @@
 # Google-Map-App
 ## An application where you can make the path from the starting point to the final.
-![Screenshot](Wall[a[er.png)
+![Screenshot](screen.png)
 ## This project uses:
 * Kotlin;
 * MVVM architecture;
